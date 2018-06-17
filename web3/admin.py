@@ -9,6 +9,11 @@ class Admin(Module):
             "admin_addPeer", [node_url],
         )
 
+    def removePeer(self, node_url):
+        return self.web3.manager.request_blocking(
+            "admin_removePeer", [node_url],
+        )
+
     @property
     def datadir(self):
         return self.web3.manager.request_blocking("admin_datadir", [])
